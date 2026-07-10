@@ -7,9 +7,19 @@
 // TERMINAL watch face configuration
 // ---------------------------------------------------------------------------
 
+// Optional local overrides (gitignored): put your real AGGREGATOR_URL etc. in
+// settings.local.h next to this file; it wins over every default below.
+#if defined(__has_include)
+#  if __has_include("settings.local.h")
+#    include "settings.local.h"
+#  endif
+#endif
+
 // LAN usage-aggregator endpoint (percentages only, no secrets on the wire).
 // GET returns the /watchy.json contract documented in TerminalFace.cpp.
+#ifndef AGGREGATOR_URL
 #define AGGREGATOR_URL "http://192.168.1.100:8090/watchy.json"
+#endif
 
 // How often (in minute-ticks) to spend Wi-Fi on a refresh. The RTC wakes the
 // watch once per minute; we only light up the radio every FETCH_INTERVAL_MIN.

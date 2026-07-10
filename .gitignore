@@ -68,3 +68,4 @@ manifest.mf
 nbbuild.xml
 nbproject
 .vscode
+examples/WatchFaces/Terminal/settings.local.h
